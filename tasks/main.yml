@@ -1,0 +1,15 @@
+---
+# tasks file for httpd
+- name : Install apache httpd
+  ansible.builtin.apt :
+   name : apache2
+   state : present
+   update_cache : true
+
+- name : Copy landing page html 
+  ansible.builtin.copy : 
+   src : files/index.html
+   dest : /var/www/html
+   owner : root
+   mode : 'preserve'
+   group : root
